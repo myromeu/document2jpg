@@ -1,8 +1,16 @@
 import os
+import sys
 import shutil
 import subprocess
 
 from pdf2image import convert_from_path as convert_to_jpg
+
+if sys.platform == 'win32':
+    os.environ['PATH'] += os.pathsep + \
+        os.path.join(os.environ['ProgramFiles'], 'LibreOffice', 'program')
+    BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+    os.environ['PATH'] += os.pathsep + \
+        os.path.join(BASE_DIR, 'poppler', 'bin')
 
 
 def create_temp_pdf_dir(destination):
