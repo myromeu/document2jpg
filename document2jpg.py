@@ -36,14 +36,16 @@ def add_suffix(name):
 if __name__ == "__main__":
     from sys import argv, exit
 
-    if len(argv) < 3:
-        print("USAGE: python %s <input-folder> <output-folder>" % argv[0])
-        # exit(1)
-
-    # input_folder = os.path.abspath(argv[1])
-    # output_folder = os.path.abspath(argv[2])
     input_folder = os.path.abspath('demofiles')
     output_folder = os.path.abspath('outputfiles')
+
+    if '-h' in argv[1:]:
+        print("USAGE: python %s <input-folder> <output-folder>" % argv[0])
+        exit(0)
+
+    if len(argv) == 3:
+        input_folder = os.path.abspath(argv[1])
+        output_folder = os.path.abspath(argv[2])
 
     if not os.path.isdir(input_folder):
         print("no such input folder: %s" % input_folder)
