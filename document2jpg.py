@@ -11,6 +11,9 @@ if sys.platform == 'win32':
     BASE_DIR = os.path.abspath(os.path.dirname(__file__))
     os.environ['PATH'] += os.pathsep + \
         os.path.join(BASE_DIR, 'poppler', 'bin')
+    # add portable soffice support
+    os.environ['PATH'] += os.pathsep + \
+        os.path.join(BASE_DIR, 'LibreOfficePortable', 'App', 'libreoffice', 'program')
 
 
 def create_temp_pdf_dir(destination):
