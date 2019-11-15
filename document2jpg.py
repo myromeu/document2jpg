@@ -7,7 +7,9 @@ from pdf2image import convert_from_path as convert_to_jpg
 
 if sys.platform == 'win32':
     os.environ['PATH'] += os.pathsep + \
-        os.path.join(os.environ['ProgramFiles'], 'LibreOffice', 'program')
+        os.path.join(os.environ["ProgramW6432"], 'LibreOffice', 'program')
+    os.environ['PATH'] += os.pathsep + \
+        os.path.join(os.environ["ProgramFiles(x86)"], 'LibreOffice', 'program')
     BASE_DIR = os.path.abspath(os.path.dirname(__file__))
     os.environ['PATH'] += os.pathsep + \
         os.path.join(BASE_DIR, 'poppler', 'bin')
